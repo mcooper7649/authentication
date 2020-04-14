@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema ({
   password: String,
   googleId: String,
   facebookId: String,
-  secret: String
+  secret: String,
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -138,6 +138,7 @@ app.get("/submit", function(req, res){
   }
 });
 
+
 app.post("/submit", function(req, res){
   const submittedSecret = req.body.secret;
 
@@ -162,6 +163,8 @@ app.get("/logout", function(req, res){
   req.logout();
   res.redirect("/");
 });
+
+
 
 app.post("/register", function(req, res){
 
